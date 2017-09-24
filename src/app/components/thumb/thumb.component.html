@@ -1,0 +1,11 @@
+<div class="prezly-thumb">
+    <prezly-avatar class="prezly-thumb__avatar" [user]="prezi.creator"></prezly-avatar>
+    <a href="#" >
+        <img class="prezly-thumb__image" src="{{prezi.thumbnail}}"/>
+    </a>
+    <a href="#">
+        <h2 class="prezly-thumb__title">{{prezi.title}}</h2>
+    </a>
+    <p class="prezly-thumb__created">{{timeInfo}}</p>
+    <a class="prezly-thumb__edit-link" href="#edit">&#60;&#47;&#62;</a>
+</div>

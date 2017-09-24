@@ -1,0 +1,11 @@
+<div class="prezly-listview">
+    <prezly-search-box (onSubmit)="onSearch($event)"></prezly-search-box>
+    <div class="prezly-listview__sorter">sort</div>
+    <p>{{preziCards.length}}</p>
+    <ul class="prezly-listview__cards row">
+       <li class="list-unstyled col-xs-12 col-md-4 col-sm-6 prezly-listview__card-container" *ngFor="let card of preziCards">
+           <prezly-thumb [prezi]="card"></prezly-thumb>
+       </li>
+    </ul>
+    <div class="prezly-listview__paginator">pagination</div>
+</div>
