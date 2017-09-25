@@ -12,6 +12,8 @@ import { HttpModule } from '@angular/http';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 import { FormsModule } from '@angular/forms';
+import { SorterComponent } from './components/sorter/sorter.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     ThumbComponent,
     ListViewComponent,
     HeaderComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    SorterComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule

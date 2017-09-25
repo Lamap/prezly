@@ -1,6 +1,11 @@
 <div class="prezly-listview">
     <prezly-search-box (onSubmit)="onSearch($event)"></prezly-search-box>
-    <div class="prezly-listview__sorter">sort</div>
+    <prezly-sorter name="Last modified" (onUpdated)="sortChanged($event)"></prezly-sorter>
+    <prezly-paginator
+      (pageChanged)="pageChanged($event)"
+      [actualPage]="query.page"
+      [pageCount]="pageCount"
+    ></prezly-paginator>
     <p>{{preziCards.length}}</p>
     <ul class="prezly-listview__cards row">
        <li class="list-unstyled col-xs-12 col-md-4 col-sm-6 prezly-listview__card-container" *ngFor="let card of preziCards">

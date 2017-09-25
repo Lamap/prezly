@@ -1,0 +1,15 @@
+<span class="prezly-paginator">
+  <button (click)="leftClicked()" *ngIf="from > 1">left</button>
+  <span *ngIf="from > 1">
+    ...
+  </span>
+  <span *ngFor="let page of pages" >
+    <span *ngIf="page===actualPage">{{page}}</span>
+    <button *ngIf="page!==actualPage" (click)="onPageClicked(page)">{{page}}</button>
+
+  </span>
+  <span *ngIf="to < pageCount">
+    ...
+  </span>
+  <button (click)="rightClicked()" *ngIf="actualPage !== pageCount">right</button>
+</span>
