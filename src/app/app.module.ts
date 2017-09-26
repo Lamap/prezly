@@ -15,6 +15,10 @@ import { FormsModule } from '@angular/forms';
 import { SorterComponent } from './components/sorter/sorter.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 
+import { ModalModule} from 'ngx-bootstrap';
+import { EmbedEditorComponent } from './components/embed-editor/embed-editor.component';
+import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +28,13 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     HeaderComponent,
     SearchBoxComponent,
     SorterComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    EmbedEditorComponent
   ],
   imports: [
-    BrowserModule, HttpModule, FormsModule
+    BrowserModule, HttpModule, FormsModule, ModalModule.forRoot()
   ],
-  providers: [PrezliQueryService],
+  providers: [PrezliQueryService, ClipboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

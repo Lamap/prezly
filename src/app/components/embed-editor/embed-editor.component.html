@@ -1,0 +1,15 @@
+<div class="prezly-embed-editor">
+  <button (click)="modalRef.hide()">close</button>
+  <h3>embed prezi</h3>
+  <h1>My super presentation</h1>
+  <div class="d-flex">
+    <span>width</span><input type="number" [(ngModel)]="width"> <span>px</span>
+    <span>height</span><input type="number" [(ngModel)]="height"> <span>px</span>
+
+  </div>
+  <div>
+    <p>{{prezly._id}}</p>
+    <button (click)="copyToClipboard()">copy</button>
+  </div>
+  {{test}}
+</div>

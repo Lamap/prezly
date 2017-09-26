@@ -1,5 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 import {IPreziCard} from '../../services/prezi-query.service';
+//import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService} from 'ngx-bootstrap';
+//import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
   selector: 'prezly-thumb',
@@ -9,7 +12,9 @@ import {IPreziCard} from '../../services/prezi-query.service';
 export class ThumbComponent implements OnInit {
 
     public timeInfo: string;
-    constructor() { }
+    public modalRef: BsModalRef;
+    constructor(private modalService: BsModalService) {}
+
     @Input() prezi: IPreziCard;
 
     ngOnInit() {
@@ -27,5 +32,9 @@ export class ThumbComponent implements OnInit {
         const updatedDate: Date = new Date(this.prezi.modifiedAt);
         this.timeInfo = 'Updated at ' +  updatedDate.getDay() + ' of ' + updatedDate.getMonth() + ' '
             + updatedDate.getFullYear();
+    }
+    public openModal (template: TemplateRef<any>) {
+      console.log('open');
+      this.modalRef = this.modalService.show(template);
     }
 }
