@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {IPreziCard} from '../../services/prezi-query.service';
 import { BsModalRef } from 'ngx-bootstrap';
 import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
@@ -10,17 +10,24 @@ import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
 })
 export class EmbedEditorComponent implements OnInit {
   public test: string;
-  public width: number = 200;
-  public height: number = 300;
-  constructor(private clipboard: ClipboardService) { }
+  public width: number;
+  public height: number;
+  public code: string;
+  constructor(private clipboard: ClipboardService) {
+    this.width = 200;
+    this.height = 300;
+  }
   @Input() prezly: IPreziCard;
   @Input() modalRef: BsModalRef;
 
   ngOnInit() {
     this.test = JSON.stringify(this.prezly);
+    this.generateCode();
   }
   copyToClipboard () {
-    console.log('copyTo');
-    this.clipboard.copy(this.prezly._id);
+    this.clipboard.copy(this.code);
+  }
+  public generateCode() {
+    this.code = '<iframe width="' + this.width + '" height="' + this.height + '" id="' + this.prezly._id + '"></iframe>';
   }
 }

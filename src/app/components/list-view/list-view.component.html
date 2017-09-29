@@ -1,16 +1,21 @@
 <div class="prezly-listview">
-    <prezly-search-box (onSubmit)="onSearch($event)"></prezly-search-box>
+  <div class="prezly-listview__header">
+    <div class="prezly-listview__searchbox">
+      <prezly-search-box (onSubmit)="onSearch($event)"></prezly-search-box>
+    </div>
+    <div class="prezly-listview__header-helper"></div>
     <prezly-sorter name="Last modified" (onUpdated)="sortChanged($event)"></prezly-sorter>
-    <prezly-paginator
-      (pageChanged)="pageChanged($event)"
-      [actualPage]="query.page"
-      [pageCount]="pageCount"
-    ></prezly-paginator>
-    <p>{{preziCards.length}}</p>
+  </div>
     <ul class="prezly-listview__cards row">
        <li class="list-unstyled col-xs-12 col-md-4 col-sm-6 prezly-listview__card-container" *ngFor="let card of preziCards">
            <prezly-thumb [prezi]="card"></prezly-thumb>
        </li>
     </ul>
-    <div class="prezly-listview__paginator">pagination</div>
+    <div class="prezly-listview__paginator">
+      <prezly-paginator
+        (pageChanged)="pageChanged($event)"
+        [actualPage]="query.page"
+        [pageCount]="pageCount"
+      ></prezly-paginator>
+    </div>
 </div>

@@ -1,14 +1,22 @@
 @card-spacing: 15px;
 .prezly-listview {
   display: block;
-  background-color: #eeeeee;
+  padding: @card-spacing;
+  max-width: 922px;
+  &__header {
+    display: flex;
+  }
+  &__header-helper {
+    flex-grow: 1;
+  }
   &__card-container {
     padding-top: @card-spacing;
     padding-bottom: @card-spacing;
   }
   &__cards {
-    max-width: 1000px;
-    margin: @card-spacing;
     padding: 0;
+  }
+  &__paginator {
+    text-align: center;
   }
 }

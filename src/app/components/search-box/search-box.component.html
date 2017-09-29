@@ -1,6 +1,6 @@
 <div class="prezly-searchbox" (keyup.enter)="searchIt()">
-    <input type="text" [(ngModel)]="value" placeholder="Search prezis..."/>
-    <button class="prezly-searchbox__button" (click)="searchIt()">
+    <input class="prezly-searchbox__input" type="text" [(ngModel)]="value" placeholder="Search prezis..."/>
+    <span class="prezly-searchbox__button" (click)="searchIt()">
         <span class="glyphicon glyphicon-search"></span>
-    </button>
+    </span>
 </div>

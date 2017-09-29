@@ -1,3 +1,25 @@
 .prezly-searchbox {
-
+  display: flex;
+  @radius: 4px;
+  &__input {
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+    border: solid 1px #ccc;
+    padding: 0 10px;
+    &:hover,:active {
+      outline: none;
+    }
+  }
+  &__button {
+    cursor: pointer;
+    background: #ccc;
+    height: 22px;
+    line-height: 22px;
+    padding: 0px 10px;
+    margin-left: 0px;
+    color: #555;
+    border-bottom-right-radius: @radius;
+    border-top-right-radius: @radius;
+    display: inline-block;
+  }
 }

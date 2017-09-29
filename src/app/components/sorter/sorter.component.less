@@ -1,3 +1,27 @@
 .prezly-sorter {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  &__caret-up {
+    transform: rotate(180deg);
+    margin-bottom: 2px;
+    color: #aaaaaa;
+  }
+  &__carets {
+    display: grid;
+    color: #555555;
+  }
+  &__label {
+    margin-right: 5px;
+  }
+}
+.prezly-sorter--up {
+  .prezly-sorter {
+    &__carets {
+      color: #aaa;
+    }
+    &__caret-up {
+      color: #555;
+    }
+  }
 }

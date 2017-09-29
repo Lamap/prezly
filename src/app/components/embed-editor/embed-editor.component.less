@@ -1,3 +1,71 @@
+@import "../../../styles";
 .prezly-embed-editor {
-  padding: 20px;
+  @main-spacing: 30px;
+  .main-font;
+  position: relative;
+  padding: @main-spacing;
+  &__prefix {
+  }
+  &__title {
+    .main-font;
+    margin: 0 0 30px 0;
+    font-size: 32px;
+  }
+  &__prefix {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+    font-weight: bold;
+    .main-font;
+  }
+  &__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: @gray-light;
+    cursor: pointer;
+  }
+  &__dimensions-groups {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  &__dimension {
+    display: flex;
+    margin-right: 50px;
+    align-items: center;
+  }
+  &__dimension-prefix {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  &__dimension-input {
+    margin-right: 7px;
+    padding: 10px 10px;
+    width: 80px;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    outline: none;
+  }
+  &__dimension-postfix {
+
+  }
+  &__code-section {
+    background-color: #f9f9f9;
+    margin: 0 -@main-spacing -@main-spacing -@main-spacing;
+    border-radius: 0 0 5px 5px;
+    padding: @main-spacing;
+    color: #666666;
+  }
+  &__code {
+    margin-bottom: 80px;
+    font-family: Consolas,Monaco,Lucida Console;
+  }
+  &__copy-button {
+    float: right;
+    margin-top: -@main-spacing;
+  }
 }

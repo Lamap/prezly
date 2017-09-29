@@ -29,6 +29,7 @@ export class AvatarComponent implements OnInit {
 
   ngOnInit() {
       this.letters = this.convertNamesToMonogram(this.user.name);
+      this.color = '#' + this.intToRGB(this.hashCode(this.user.name));
   }
   private convertNamesToMonogram(name: string): string {
       let monogram: string = '';
@@ -37,5 +38,21 @@ export class AvatarComponent implements OnInit {
           monogram += partials[i][0];
       }
       return monogram.toUpperCase();
+  }
+
+  private hashCode(str: string) { // java String#hashCode
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+
+  private intToRGB (i: number) {
+    const c: string = (i & 0x00FFFFFF)
+      .toString(16)
+      .toUpperCase();
+
+    return '00000'.substring(0, 6 - c.length) + c;
   }
 }

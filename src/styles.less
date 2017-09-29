@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-a:link, a:visited, a:hover, a:active {
+@import "../node_modules/bootstrap/less/variables";
+.main-font {
+  font-family: 'Raleway', Helvetica, sans-serif;
+  color: @gray-dark;
+}
+body {
+  .main-font;
+  a:link, a:visited, a:hover, a:active {
     text-decoration: none; color: #000;
+  }
 }

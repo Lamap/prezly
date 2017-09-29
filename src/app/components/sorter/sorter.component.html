@@ -1,4 +1,7 @@
-<span class="prezly-sorter" (click)="switch()">
-  <span>{{name}}</span>
-  <span>{{value}}</span>
+<span class="prezly-sorter" [ngClass]="{'prezly-sorter--up': value}" (click)="switch()">
+  <span class="prezly-sorter__label">{{name}}</span>
+  <div class="prezly-sorter__carets" >
+    <span class="glyphicon caret prezly-sorter__caret-up"></span>
+    <span class="glyphicon caret"></span>
+  </div>
 </span>

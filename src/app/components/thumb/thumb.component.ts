@@ -3,6 +3,8 @@ import {IPreziCard} from '../../services/prezi-query.service';
 //import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsModalRef, BsModalService} from 'ngx-bootstrap';
 //import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import * as moment from 'moment';
+import {Moment} from "moment";
 
 @Component({
   selector: 'prezly-thumb',
@@ -29,9 +31,8 @@ export class ThumbComponent implements OnInit {
     };
     */
          //TODO: handle times with momemtjs and within a pipe
-        const updatedDate: Date = new Date(this.prezi.modifiedAt);
-        this.timeInfo = 'Updated at ' +  updatedDate.getDay() + ' of ' + updatedDate.getMonth() + ' '
-            + updatedDate.getFullYear();
+        const updatedDate: Moment = moment(this.prezi.modifiedAt);
+        this.timeInfo = 'Updated at ' +  updatedDate.format('Do MMMM YYYY');
     }
     public openModal (template: TemplateRef<any>) {
       console.log('open');

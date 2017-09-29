@@ -1,15 +1,24 @@
 <div class="prezly-embed-editor">
-  <button (click)="modalRef.hide()">close</button>
-  <h3>embed prezi</h3>
-  <h1>My super presentation</h1>
-  <div class="d-flex">
-    <span>width</span><input type="number" [(ngModel)]="width"> <span>px</span>
-    <span>height</span><input type="number" [(ngModel)]="height"> <span>px</span>
+  <span (click)="modalRef.hide()" class="glyphicon glyphicon-remove prezly-embed-editor__close"></span>
+  <h3 class="prezly-embed-editor__prefix">embed prezi</h3>
+  <h1 class="prezly-embed-editor__title">{{prezly.title}}</h1>
+  <div class="prezly-embed-editor__dimensions-groups">
+    <div class="prezly-embed-editor__dimension">
+      <span class="prezly-embed-editor__dimension-prefix">width</span>
+      <input class="prezly-embed-editor__dimension-input" type="number" [(ngModel)]="width" (ngModelChange)="generateCode()">
+      <span class="prezly-embed-editor__dimension-postfix">px</span>
+    </div>
+    <div class="prezly-embed-editor__dimension">
+      <span class="prezly-embed-editor__dimension-prefix">height</span>
+      <input class="prezly-embed-editor__dimension-input" type="number" [(ngModel)]="height" (ngModelChange)="generateCode()">
+      <span class="prezly-embed-editor__dimension-postfix">px</span>
+    </div>
+  </div>
+  <div class="prezly-embed-editor__options_group">
 
   </div>
-  <div>
-    <p>{{prezly._id}}</p>
-    <button (click)="copyToClipboard()">copy</button>
+  <div class="prezly-embed-editor__code-section">
+    <p class="prezly-embed-editor__code">{{this.code}}</p>
+    <button class="prezly-embed-editor__copy-button btn btn-primary" (click)="copyToClipboard()">Copy code to the clipboard</button>
   </div>
-  {{test}}
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter, SimpleChange, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'prezly-paginator',
