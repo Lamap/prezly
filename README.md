@@ -2,7 +2,6 @@
 
 TODOS
 * tests - add more
-* deploy
 * styles cleanup: use global colors/fonts/mixins
 * handle too long thumb info (ovarlap with abs positioned button)
 * use correct icons instead of glyph
