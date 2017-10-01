@@ -4,7 +4,6 @@ import {IPreziCreator} from "../../services/prezi-query.service";
 export interface IUser {
     firstName: string;
     lastName: string;
-    image?: string;
 }
 
 @Component({
