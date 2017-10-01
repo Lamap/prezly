@@ -1,21 +1,25 @@
 <div class="prezly-listview">
-  <div class="prezly-listview__header">
-    <div class="prezly-listview__searchbox">
-      <prezly-search-box (onSubmit)="onSearch($event)"></prezly-search-box>
+    <div class="prezly-listview__header">
+      <div class="prezly-listview__searchbox">
+        <prezly-search-box (onSubmit)="onSearch($event)"></prezly-search-box>
+      </div>
+      <div class="prezly-listview__header-helper"></div>
+      <prezly-sorter name="Last modified" (onUpdated)="sortChanged($event)"></prezly-sorter>
     </div>
-    <div class="prezly-listview__header-helper"></div>
-    <prezly-sorter name="Last modified" (onUpdated)="sortChanged($event)"></prezly-sorter>
-  </div>
     <ul class="prezly-listview__cards row">
        <li class="list-unstyled col-xs-12 col-md-4 col-sm-6 prezly-listview__card-container" *ngFor="let card of preziCards">
            <prezly-thumb [prezi]="card"></prezly-thumb>
        </li>
     </ul>
-    <div class="prezly-listview__paginator">
+    <div class="prezly-listview__paginator" *ngIf="!status">
       <prezly-paginator
         (pageChanged)="pageChanged($event)"
         [actualPage]="query.page"
         [pageCount]="pageCount"
       ></prezly-paginator>
     </div>
+  <prezly-message-page
+          [message]="status"
+  ></prezly-message-page>
+  <div class="prezly-listview__loader" *ngIf="isBusy">Loading...</div>
 </div>

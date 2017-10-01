@@ -1,15 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { PreziQueryService } from './prezi-query.service';
+import { PrezliQueryService } from './prezi-query.service';
+import {HttpModule} from "@angular/http";
 
 describe('PreziQueryService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PreziQueryService]
+      imports: [HttpModule],
+      providers: [PrezliQueryService]
     });
   });
 
-  it('should be created', inject([PreziQueryService], (service: PreziQueryService) => {
+  it('should be created', inject([PrezliQueryService], (service: PrezliQueryService) => {
     expect(service).toBeTruthy();
   }));
 });

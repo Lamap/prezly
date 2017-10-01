@@ -1,0 +1,14 @@
+<ul class="prezly-radio-button">
+  <li class="list-unstyled prezly-radio-button__item"
+      *ngFor="let item of items"
+  >
+    <div *ngIf="item.value !== selectedValue" (click)="onItemSelected(item)">
+      <span class="prezly-radio-button__item-circle-simple"></span>
+      <span>{{item.label}}</span>
+    </div>
+    <div *ngIf="item.value === selectedValue">
+      <span class="prezly-radio-button__item-circle-selected"></span>
+      <span>{{item.label}}</span>
+    </div>
+  </li>
+</ul>

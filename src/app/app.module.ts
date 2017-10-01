@@ -18,6 +18,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { ModalModule} from 'ngx-bootstrap';
 import { EmbedEditorComponent } from './components/embed-editor/embed-editor.component';
 import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
+import { MessagePageComponent } from './components/message-page/message-page.component';
+import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
     SearchBoxComponent,
     SorterComponent,
     PaginatorComponent,
-    EmbedEditorComponent
+    EmbedEditorComponent,
+    MessagePageComponent,
+    RadioButtonComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, ModalModule.forRoot()

@@ -3,6 +3,7 @@ import {
     PrezliQueryService, IPreziCard, IPrezlyResult, IPreziQuery,
     PrezlySortValues
 } from '../../services/prezi-query.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'prezly-list-view',
@@ -14,6 +15,8 @@ export class ListViewComponent implements OnInit {
     public sort: PrezlySortValues;
     public query: IPreziQuery;
     public pageCount: number = 0;
+    public status: string;
+    public isBusy: boolean;
 
     constructor(private prezlyQuery: PrezliQueryService) {
         this.query = {};
@@ -26,7 +29,6 @@ export class ListViewComponent implements OnInit {
     }
 
     public onSearch (event: string) {
-      console.log(event);
       this.query.page = 1;
       if (event === '') {
         this.query = {page: 1};
@@ -36,24 +38,30 @@ export class ListViewComponent implements OnInit {
       this.updateList();
     }
 
-    public listUpdated (data: IPrezlyResult) {
-        console.log('listUpdated:', data);
-        this.preziCards = data.docs;
-    }
     public sortChanged(event: boolean) {
       this.query.sort = event ? 'modifiedAt' : '-modifiedAt';
       this.updateList();
     }
     public pageChanged(event: number) {
-      console.log(event);
       this.query.page = event;
       this.updateList();
     }
     private updateList() {
-      this.prezlyQuery.getPrezlies(this.query).subscribe((data: IPrezlyResult) => {
-        console.log(data.pages);
-        this.pageCount = data.pages;
-        this.preziCards = data.docs;
-      });
+        this.isBusy = true;
+        this.status = '';
+        this.prezlyQuery.getPrezlies(this.query).subscribe((data: IPrezlyResult) => {
+            this.pageCount = data.pages;
+            this.preziCards = data.docs;
+            this.isBusy = false;
+            if (!data.docs.length) {
+                return this.status = 'There is no result for searching "' + this.query.title + '".';
+            }
+        }, (error: HttpErrorResponse) => {
+            this.isBusy = false;
+            this.status = 'Opps, something went wrong, please keep calm.';
+            if (error.message) {
+                this.status += '\n The problem is: ' + error.message;
+            }
+        });
     }
 }

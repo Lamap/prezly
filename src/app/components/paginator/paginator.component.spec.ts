@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginatorComponent } from './paginator.component';
+import {FormsModule} from "@angular/forms";
 
 describe('PaginatorComponent', () => {
   let component: PaginatorComponent;
@@ -8,7 +9,8 @@ describe('PaginatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaginatorComponent ]
+      declarations: [ PaginatorComponent ],
+      imports: [FormsModule]
     })
     .compileComponents();
   }));

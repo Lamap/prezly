@@ -1,4 +1,6 @@
 import { AppPage } from './app.po';
+import {browser} from 'protractor';
+import {IWebElementFinders} from "selenium-webdriver";
 
 describe('prezly App', () => {
   let page: AppPage;
@@ -9,6 +11,14 @@ describe('prezly App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getHeaderText()).toEqual('John Cleese');
+  });
+  it('Loading is happening', () => {
+    /*
+    const listView = page.getListView();
+    listView.getLoader().then((loader) => {
+      expect(loader.getText()).toEqual('Loading...');
+    });
+    */
   });
 });

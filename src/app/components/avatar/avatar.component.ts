@@ -17,7 +17,7 @@ export class AvatarComponent implements OnInit {
 
     public letters: string;
     public color: string;
-    //TODO: generate color from user hash
+ //TODO: generate color from a color set from user hash
 
     constructor() {
         this.user = {

@@ -1,0 +1,25 @@
+.prezly-radio-button {
+  @circle-dimension: 12px;
+  padding-left: 0;
+  .radio-circle {
+    width: @circle-dimension;
+    height: @circle-dimension;
+    border-radius: 100%;
+    margin-right: 20px;
+    display: inline-block;
+  }
+
+  &__item {
+    cursor: pointer;
+    user-select: none;
+  }
+  &__item-circle-selected {
+    border: 4px solid dodgerblue;
+    .radio-circle;
+
+  }
+  &__item-circle-simple {
+    border: 1px solid #888888;
+    .radio-circle;
+  }
+}

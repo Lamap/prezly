@@ -5,20 +5,22 @@
   <div class="prezly-embed-editor__dimensions-groups">
     <div class="prezly-embed-editor__dimension">
       <span class="prezly-embed-editor__dimension-prefix">width</span>
-      <input class="prezly-embed-editor__dimension-input" type="number" [(ngModel)]="width" (ngModelChange)="generateCode()">
+      <input class="prezly-embed-editor__dimension-input" type="number" [(ngModel)]="width">
       <span class="prezly-embed-editor__dimension-postfix">px</span>
     </div>
     <div class="prezly-embed-editor__dimension">
       <span class="prezly-embed-editor__dimension-prefix">height</span>
-      <input class="prezly-embed-editor__dimension-input" type="number" [(ngModel)]="height" (ngModelChange)="generateCode()">
+      <input class="prezly-embed-editor__dimension-input" type="number" [(ngModel)]="height">
       <span class="prezly-embed-editor__dimension-postfix">px</span>
     </div>
   </div>
   <div class="prezly-embed-editor__options_group">
-
+    <prezly-radio-button [items]="lockToPathTypes" [(selectedValue)]="lockToPathValue"></prezly-radio-button>
   </div>
   <div class="prezly-embed-editor__code-section">
-    <p class="prezly-embed-editor__code">{{this.code}}</p>
+    <p class="prezly-embed-editor__code">
+      &lt;iframe id=&quot;iframe_container&quot; width=&quot;{{width}}&quot; height=&quot;{{height}}&quot; frameborder=&quot;0&quot; src=&quot;https://prezi.com/embed/{{prezly._id}}?bgcolor=fffff&amp;amp;lock_to_path={{lockToPathValue}}&amp;amp;autoplay=0&amp;amp;autohide_ctrls=0&quot;&gt;&lt;/iframe&gt;
+    </p>
     <button class="prezly-embed-editor__copy-button btn btn-primary" (click)="copyToClipboard()">Copy code to the clipboard</button>
   </div>
 </div>

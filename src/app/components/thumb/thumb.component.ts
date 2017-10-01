@@ -20,17 +20,7 @@ export class ThumbComponent implements OnInit {
     @Input() prezi: IPreziCard;
 
     ngOnInit() {
-      /*
-    this.prezi = {
-      createdAt: new Date(),
-      creator: {name: 'Jack Mock'},
-      modifiedAt: new Date(),
-      thumbnail: 'http://static.snopes.com/app/uploads/2013/08/cleese.jpg',
-      title: 'Hovercraft template',
-      _id: '324dsf34sfd3q4fsas'
-    };
-    */
-         //TODO: handle times with momemtjs and within a pipe
+         //TODO: handle times with momentjs and within a pipe
         const updatedDate: Moment = moment(this.prezi.modifiedAt);
         this.timeInfo = 'Updated at ' +  updatedDate.format('Do MMMM YYYY');
     }

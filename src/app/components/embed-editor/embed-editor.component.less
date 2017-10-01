@@ -28,11 +28,13 @@
   &__dimensions-groups {
     display: flex;
     margin-bottom: 20px;
+    flex-wrap: wrap;
   }
   &__dimension {
     display: flex;
     margin-right: 50px;
     align-items: center;
+    margin-top: 5px;
   }
   &__dimension-prefix {
     font-weight: bold;
@@ -62,7 +64,8 @@
   }
   &__code {
     margin-bottom: 80px;
-    font-family: Consolas,Monaco,Lucida Console;
+    word-wrap: break-word;
+    font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
   }
   &__copy-button {
     float: right;

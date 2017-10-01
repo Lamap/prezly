@@ -17,14 +17,11 @@ export class PaginatorComponent implements OnInit, OnChanges {
 
   @Output() pageChanged = new EventEmitter<number>();
   ngOnInit() {
-    console.log('paginator -init');
     this.actualPage = 1;
     this.pageCount = 10;
     this.pagesToDisplay = 3;
   }
   ngOnChanges (changes: SimpleChanges) {
-    //
-    console.log('change', changes);
     this.setNumbers();
   }
   public leftClicked () {
@@ -36,7 +33,6 @@ export class PaginatorComponent implements OnInit, OnChanges {
     this.pageChanged.emit(this.actualPage);
   }
   public onPageClicked (event: number) {
-    console.log(event);
     this.actualPage = event;
     this.pageChanged.emit(this.actualPage);
   }

@@ -1,4 +1,4 @@
-<span class="prezly-paginator">
+<span class="prezly-paginator" *ngIf="pages.length > 1">
   <span class="glyphicon glyphicon-arrow-left prezly-paginator__button" (click)="leftClicked()" *ngIf="from > 1"></span>
   <span *ngIf="from > 1">
     ...

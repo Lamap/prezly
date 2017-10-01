@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ThumbComponent } from './thumb.component';
+import { AvatarComponent } from '../avatar/avatar.component';
 
 describe('ThumbComponent', () => {
   let component: ThumbComponent;
@@ -8,7 +9,10 @@ describe('ThumbComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ThumbComponent ]
+      declarations: [
+          ThumbComponent,
+          AvatarComponent
+      ]
     })
     .compileComponents();
   }));

@@ -40,15 +40,12 @@ export interface IPrezlyQueryService {
 @Injectable()
 export class PrezliQueryService implements IPrezlyQueryService {
     private baseUrl: string = 'https://prezi-homeassignment-backend.herokuapp.com/api/v1/presentation/';
-    private queryChanged = new Subject<number>();
-    public queryChanged$ = this.queryChanged.asObservable();
     constructor(private http: Http) { }
 
     public getPrezlies (queryParams: IPreziQuery): Observable<IPrezlyResult> {
-        console.log('getPrezlies');
         return this.http.get(this.baseUrl, {search: queryParams}).map((res: Response) => {
             console.log(res.json());
             return res.json() as IPrezlyResult;
-        }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+        });
     }
 }
