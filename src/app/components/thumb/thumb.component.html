@@ -7,8 +7,11 @@
         <h2 class="prezly-thumb__title">{{prezi.title}}</h2>
     </a>
     <p class="prezly-thumb__created">{{timeInfo}}</p>
-    <a class="prezly-thumb__edit-link" href="#edit" (click)="openModal(embedderModal)">&#60;&#47;&#62;</a>
+    <a class="prezly-thumb__edit-link" href="#edit" (click)="openModal(embedderModal, paymentModal)">&#60;&#47;&#62;</a>
   <ng-template #embedderModal>
     <prezly-embed-editor [prezly]="prezi" [modalRef]="modalRef"></prezly-embed-editor>
+  </ng-template>
+  <ng-template #paymentModal>
+    <prezly-payment-wizard [modalRef]="modalRef"></prezly-payment-wizard>
   </ng-template>
 </div>
