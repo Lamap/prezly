@@ -2,12 +2,48 @@
   <span (click)="modalRef.hide()" class="glyphicon glyphicon-remove prezly-payment-wizard__close"></span>
 
   <div *ngIf="step===1" class="prezly-payment-wizard__step-1">
-    welcome screen
+    <h3>Welcome screen</h3>
     <button class="prezly-payment-wizard__upgrade-btn" (click)="stepTo2()">Upgrade to Plus</button>
   </div>
   <div *ngIf="step===2" class="prezly-payment-wizard__step-2">
-    payment screen
-    <button class="prezly-payment-wizard__pay-btn" (click)="stepTo3()">Continue</button>
+    <h3 class="prezly-payment-wizard__step-title">Payment Method</h3>
+    <h3 class="prezly-payment-wizard__dummy-error">{{dummyError}}</h3>
+    <div class="prezly-payment-wizard__input-grp">
+      <p class="prezly-payment-wizard__label">Card Number</p>
+      <input class="prezly-payment-wizard__text-input" type="text" [(ngModel)]="cardNumber">
+    </div>
+    <div class="prezly-payment-wizard__input-grp prezly-payment-wizard__expiration-grp">
+      <div class="prezly-payment-wizard__input">
+        <p class="prezly-payment-wizard__label">Expiration Date</p>
+        <input type="text" class="" [(ngModel)]="expDate">
+        <input type="text" class="" [(ngModel)]="expMonth">
+      </div>
+      <div class="prezly-payment-wizard__pusher"></div>
+      <div class="prezly-payment-wizard__input">
+        <p class="prezly-payment-wizard__label">CVV</p>
+        <input type="text" [(ngModel)]="cvv">
+      </div>
+    </div>
+    <div class="prezly-payment-wizard__input-grp">
+      <p class="prezly-payment-wizard__label">Cardholder Name</p>
+      <input type="text" class="prezly-payment-wizard__text-input" [(ngModel)]="cardholderName">
+    </div>
+    <div class="prezly-payment-wizard__address-grp">
+      <div class="prezly-payment-wizard__input-grp">
+        <p class="prezly-payment-wizard__label">Post Code</p>
+        <input type="text" class="prezly-payment-wizard__text-input" [(ngModel)]="postCode">
+      </div>
+      <div class="prezly-payment-wizard__pusher"></div>
+      <div class="prezly-payment-wizard__input-grp prezly-payment-wizard__input-grp-address">
+        <p class="prezly-payment-wizard__label">Country</p>
+        <input type="text" class="prezly-payment-wizard__text-input" [(ngModel)]="country">
+      </div>
+    </div>
+    <div class="prezly-payment-wizard__input-grp-actions">
+      <button class="prezly-payment-wizard__cancel-btn" (click)="modalRef.hide()">Cancel</button>
+      <div class="prezly-payment-wizard__pusher"></div>
+      <button class="prezly-payment-wizard__pay-btn" (click)="stepTo3()">Continue</button>
+    </div>
   </div>
   <div *ngIf="step===3" class="prezly-payment-wizard__step-3">
     payment comfirmation
@@ -15,6 +51,6 @@
   </div>
   <div *ngIf="step===4" class="prezly-payment-wizard__step-4">
     payment landing
-    <button class="prezly-payment-wizard__submit-btn" (click)="finish()">Continue</button>
+    <button class="prezly-payment-wizard__submit-btn" (click)="modalRef.hide()">Continue</button>
   </div>
 </div>

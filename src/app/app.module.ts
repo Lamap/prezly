@@ -15,13 +15,14 @@ import { FormsModule } from '@angular/forms';
 import { SorterComponent } from './components/sorter/sorter.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 
-import { ModalModule} from 'ngx-bootstrap';
+import { ModalModule, BsDropdownModule } from 'ngx-bootstrap';
 import { EmbedEditorComponent } from './components/embed-editor/embed-editor.component';
 import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
 import { MessagePageComponent } from './components/message-page/message-page.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import {AuthenticationService} from "./services/authentication.service";
 import { PaymentWizardComponent } from './components/payment-wizard/payment-wizard.component';
+import {PaymentService} from "./services/payment.service";
 
 @NgModule({
   declarations: [
@@ -39,9 +40,9 @@ import { PaymentWizardComponent } from './components/payment-wizard/payment-wiza
     PaymentWizardComponent
   ],
   imports: [
-    BrowserModule, HttpModule, FormsModule, ModalModule.forRoot()
+    BrowserModule, HttpModule, FormsModule, ModalModule.forRoot(), BsDropdownModule.forRoot()
   ],
-  providers: [PrezliQueryService, ClipboardService, AuthenticationService],
+  providers: [PrezliQueryService, ClipboardService, AuthenticationService, PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
