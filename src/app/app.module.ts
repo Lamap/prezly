@@ -20,6 +20,8 @@ import { EmbedEditorComponent } from './components/embed-editor/embed-editor.com
 import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
 import { MessagePageComponent } from './components/message-page/message-page.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
+import {AuthenticationService} from "./services/authentication.service";
+import { PaymentWizardComponent } from './components/payment-wizard/payment-wizard.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +35,13 @@ import { RadioButtonComponent } from './components/radio-button/radio-button.com
     PaginatorComponent,
     EmbedEditorComponent,
     MessagePageComponent,
-    RadioButtonComponent
+    RadioButtonComponent,
+    PaymentWizardComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, ModalModule.forRoot()
   ],
-  providers: [PrezliQueryService, ClipboardService],
+  providers: [PrezliQueryService, ClipboardService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

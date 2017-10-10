@@ -4,7 +4,8 @@ import {IPreziCard} from '../../services/prezi-query.service';
 import { BsModalRef, BsModalService} from 'ngx-bootstrap';
 //import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import * as moment from 'moment';
-import {Moment} from "moment";
+import {Moment} from 'moment';
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   selector: 'prezly-thumb',
@@ -15,7 +16,7 @@ export class ThumbComponent implements OnInit {
 
     public timeInfo: string;
     public modalRef: BsModalRef;
-    constructor(private modalService: BsModalService) {}
+    constructor(private modalService: BsModalService, private authService: AuthenticationService) {}
 
     @Input() prezi: IPreziCard;
 
@@ -24,8 +25,12 @@ export class ThumbComponent implements OnInit {
         const updatedDate: Moment = moment(this.prezi.modifiedAt);
         this.timeInfo = 'Updated at ' +  updatedDate.format('Do MMMM YYYY');
     }
-    public openModal (template: TemplateRef<any>) {
+    public openModal (embedTemplate: TemplateRef<any>, wizardTemplate: TemplateRef<any>) {
       console.log('open');
-      this.modalRef = this.modalService.show(template);
+      if (!this.authService.hasAccess()) {
+        this.modalRef = this.modalService.show(wizardTemplate);
+        return;
+      }
+      this.modalRef = this.modalService.show(embedTemplate);
     }
 }

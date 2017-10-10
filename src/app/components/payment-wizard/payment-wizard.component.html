@@ -1,0 +1,20 @@
+<div class="prezly-payment-wizard">
+  <span (click)="modalRef.hide()" class="glyphicon glyphicon-remove prezly-payment-wizard__close"></span>
+
+  <div *ngIf="step===1" class="prezly-payment-wizard__step-1">
+    welcome screen
+    <button class="prezly-payment-wizard__upgrade-btn" (click)="stepTo2()">Upgrade to Plus</button>
+  </div>
+  <div *ngIf="step===2" class="prezly-payment-wizard__step-2">
+    payment screen
+    <button class="prezly-payment-wizard__pay-btn" (click)="stepTo3()">Continue</button>
+  </div>
+  <div *ngIf="step===3" class="prezly-payment-wizard__step-3">
+    payment comfirmation
+    <button class="prezly-payment-wizard__submit-btn" (click)="stepTo4()">Submit payment</button>
+  </div>
+  <div *ngIf="step===4" class="prezly-payment-wizard__step-4">
+    payment landing
+    <button class="prezly-payment-wizard__submit-btn" (click)="finish()">Continue</button>
+  </div>
+</div>
